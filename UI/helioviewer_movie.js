@@ -28,7 +28,7 @@ class HelioviewerMovie {
 
     /**
      * Queries the API for movie data
-     * @returns {Object} containing movie data
+     * @returns {Array<string>[]} containing movie data
      */
     async _GetMovieData(id) {
         let data = await Helioviewer.GetMovieDetails(id);
