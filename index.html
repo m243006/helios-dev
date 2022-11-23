@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BAT - Minimal Helios Implementation</title>
-	
+
 <link rel="stylesheet" href="resources/css/modal.css"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
 <link rel="stylesheet" href="resources/css/hv_loader.css"/>
@@ -72,9 +72,9 @@
 </div>
 
 <button id="js-sidebar-toggle" class="demo-sidebar-close sidebar-closed closed"></button>
-	
+
 <div id="js-sidebar" class="hv_leftcontrolswrap">
-	
+
 	<div class="hv_lefttabswrap">
 		<div class="hv_lefttabs" thistab="hv_datetime_div">Date & Time</div>
 		<div class="hv_lefttabs" thistab="hv_animation_div">Animation</div>
@@ -83,18 +83,18 @@
 	</div>
 
 	<div id="hv_datetime_div" class="hv_tabcont">
-	
+
 		<div class="hv_datetime_inner" style="width:90%;">
-	
+
 			<label class="hv_labels" style="font-size:10px;">Start Date/Time</label><br>
 			<input class="hv_inputs1" id="js-start-date-picker" type="text"><br><br>
-			
+
 			<label class="hv_labels" style="font-size:10px;">End Date/Time</label><br>
 			<input class="hv_inputs1" id="js-end-date-picker" type="text"><br>
-	
+
 		</div>
-		
-		
+
+
 		<div id="current-sources" class="hidden">
 			<div>Display:</div>
 			<div class="template data-source">
@@ -108,66 +108,51 @@
 					<label class="hv_labels">Opacity:</label>
 					<input class="source-opacity" type="range" min="0" max="1" step="0.01" value="1"/>
 				</div>
-				
+
 				<div style="padding-top:10px;text-align:center;">
 					<button type="button" class="source-remove hv_buttons1">Remove</button>
 				</div>
-				
+
 			</div>
 		</div>
-		
-		
+
+
 	</div>
-	
+
 	<div id="hv_animation_div" class="hv_tabcont">
-	
+
 		<div class="hv_animation_inner" style="width:80%;text-align:right;">
-	
+
 			<table style="margin:auto;width:95%;">
-			
+
 					<tr>
 						<td colspan="2">
-							<div class="hv_labels" for="js-date-range-frames" style="text-align:left;color:#ffffff;">Texture Resolution</div>
+							<div class="hv_labels" for="js-resolution-selector" style="text-align:left;color:#ffffff;">Texture Resolution</div>
 							<select id="js-resolution-selector" class="hv_inputs1"><br>
 								<option value="256">Low (256x256)</option>
-								<option value="512">Average (512x512)</option>
+								<option value="512" selected>Average (512x512)</option>
 								<option value="1024">High (1024x1024)</option>
 								<option value="2048">2K (2048x2048)</option>
 								<option value="4096">4K (4096x4096)</option>
 							</select><br>
 						</td>
 					</tr>
-					
+
 					<tr>
 						<td style="text-align: left;">
-							<label class="hv_labels" for="js-date-range-frames" style="font-size:10px;">&nbsp;<br>No. of Frames</label>
-							<input class="hv_inputs1" id="js-date-range-frames" name="js-date-range-frames" type="number"><br>			
-						</td>
-					
-						<td style="text-align: left;">
-							<label class="hv_labels" style="font-size:10px;">Frames per second</label>
+							<label for="js-animation-speed" class="hv_labels" style="font-size:10px;">Frames per second</label>
 							<input id="js-animation-speed" class="hv_inputs1" type="number" value="24"><br>
 						</td>
 					</tr>
-							
-					<tr>
-						<td style="text-align: left;">
-							<label class="hv_labels" style="font-size:10px;">Duration (seconds)</label>
-							<input id="js-animation-duration" class="hv_inputs1" type="number" value="30">
-						</td>
-						<td>
-							&nbsp;
-						</td>
-					</tr>
-					
+
 				</table>
-		
+
 		</div>
-		
+
 	</div>
-	
+
 	<div id="hv_layers_div" class="hv_tabcont">
-		
+
 		<label class="hv_labels">Observatory</label>&nbsp;
 		<select id="js-source-selector" class="hv_inputs1">
                 <!-- TODO: Fill this in with javascript -->
@@ -221,27 +206,30 @@
 
                 <!-- <option value="83">MLSO COSMO KCor</option>-->
             </select>
-			
+
+			<label for="js-date-range-frames">Number of Frames</label>
+            <input class="hv_inputs1" id="js-date-range-frames" value="100" type="text"/>
+
 			<div class="addsource_button_wrap">
 				<button id="js-add-source" class="hv_buttons1">Add Source</button>
 			</div>
-			
+
 			<!-- TESTING START needs display testing -->
 			<label for="js-helioviewer-movie">Load Movie</label>
             <input class="hv_inputs1" id="js-helioviewer-movie", type="text" placeholder="Movie ID"/>
             <button type="button" id="js-helioviewer-movie-load" class="hv_buttons1">Load</button>
 			<!-- TESTING END needs display testing -->
-			
+
 	</div>
 
 
 	<div class="hv_playbackcontrols_div">
-		 
+
 		<div style="display:none;">
 			<button id="js-play-btn">Play</button>
 			<button id="js-pause-btn">Pause</button>
 		</div>
-		
+
 		<!-- TESTING START needs display testing -->
 			<div id="current-sources" class="hidden">
 				<h1>Display:</h1>
@@ -266,12 +254,12 @@
                 </div>
             </div>
 		<!-- TESTING END needs display testing -->
-		
-		
+
+
 		<input id="js-play-btn-main" class="hv_inputs1" type="image" src="resources/images/playbutton_white1.png">
 		<!--<button id="js-pause-btn">Pause</button>-->
 	</div>
-	
+
 </div>
 
 
@@ -292,7 +280,7 @@
 <h1 class="time-label">
     <input class="scene-time" id="js-current-scene-time" type="text"/>
 </h1>
-	
+
 <div id="js-helios-viewport"></div>
 <script src="helios_bundle.js" type="module" onload="updateHeliosConfiguration();"></script>
 <script>
@@ -344,7 +332,7 @@ $(document).ready(function(){
 		$('.item .timeline_txt').removeClass('activeTLitem');
 		$(this).find(".timeline_txt").addClass('activeTLitem'); // added by BAT
 	});
-	
+
 
 
 });
